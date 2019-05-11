@@ -47,12 +47,12 @@ for i in range(pop_size):
 max_results = max_results[1:]
 max_results.sort()
 min_results = min_results[1:]
-min_results.sort()
+min_results.sort(reverse=True)
 print(max_results[-1])
-print(min_results[0])
+print(min_results[-1])
 
 print("max : y = %f, x1 = %f, x2 = %f, x3 = %f" % (max_results[-1][0], max_results[-1][1], max_results[-1][2], max_results[-1][3]))
-print("min : y = %f, x1 = %f, x2 = %f, x3 = %f" % (min_results[0][0], min_results[0][1], min_results[0][2], min_results[0][3]))
+print("min : y = %f, x1 = %f, x2 = %f, x3 = %f" % (min_results[-1][0], min_results[-1][1], min_results[-1][2], min_results[-1][3]))
 
 X = []
 Y = []

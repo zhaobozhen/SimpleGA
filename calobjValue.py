@@ -13,7 +13,7 @@ def decodechrom(pop, chrom_length):
     return temp
 
 
-# 最適解を計算
+# 適応度を計算
 
 
 def calobjValue(pop, chrom_length, max_value):
