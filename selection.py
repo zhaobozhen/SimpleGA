@@ -1,5 +1,4 @@
-# 0.0 coding:utf-8 0.0
-# 选择
+# 選択
 
 import random
 
@@ -24,11 +23,17 @@ def cumsum(fit_value):
 
 def selection(pop, fit_value):
     newfit_value = []
-    # 适应度总和
-    total_fit = sum(fit_value)
-    for i in range(len(fit_value)):
+
+    fit_value.sort()
+    temp = fit_value[0]
+    for i in range(0, len(fit_value)):
+        fit_value[i] -= temp
+
+    # 適応度の合計
+    total_fit = sum(fit_value) + 1
+    for i in range(1, len(fit_value)):
         newfit_value.append(fit_value[i] / total_fit)
-    # 计算累计概率
+    # 累積確率を計算
     cumsum(newfit_value)
     ms = []
     pop_len = len(pop)
@@ -38,14 +43,13 @@ def selection(pop, fit_value):
     fitin = 0
     newin = 0
     newpop = pop
-    # 转轮盘选择法
+    # ルーレット選択
     while newin < pop_len:
         if ms[newin] < newfit_value[fitin]:
             newpop[newin] = pop[fitin]
             newin = newin + 1
         else:
             fitin = fitin + 1
-    pop = newpop
 
 
 if __name__ == '__main__':

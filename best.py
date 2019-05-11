@@ -1,20 +1,29 @@
-# 0.0 coding:utf-8 0.0
-# 找出最优解和最优解的基因编码
+# 最適解と最適解の遺伝子を探す
 
 
 def best(pop, fit_value):
     px = len(pop)
-    best_individual1 = []
-    best_individual2 = []
-    best_individual3 = []
-    best_fit = fit_value[0]
+    max_indi1 = []
+    max_indi2 = []
+    max_indi3 = []
+
+    min_indi1 = []
+    min_indi2 = []
+    min_indi3 = []
+
+    max_fit = min_fit = fit_value[0]
     for i in range(1, px):
-        if fit_value[i] > best_fit:
-            best_fit = fit_value[i]
-            best_individual1 = pop[i % len(pop)]
-            best_individual2 = pop[(i + 1) % len(pop)]
-            best_individual3 = pop[(i + 2) % len(pop)]
-    return [best_individual1, best_individual2, best_individual3, best_fit]
+        if fit_value[i] > max_fit:
+            max_fit = fit_value[i]
+            max_indi1 = pop[i % px]
+            max_indi2 = pop[(i + 1) % px]
+            max_indi3 = pop[(i + 2) % px]
+        if fit_value[i] < min_fit:
+            min_fit = fit_value[i]
+            min_indi1 = pop[i % px]
+            min_indi2 = pop[(i + 1) % px]
+            min_indi3 = pop[(i + 2) % px]
+    return [max_indi1, max_indi2, max_indi3, max_fit, min_indi1, min_indi2, min_indi3, min_fit]
 
 
 if __name__ == '__main__':

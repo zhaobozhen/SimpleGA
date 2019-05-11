@@ -1,7 +1,6 @@
-# 0.0 coding:utf-8 0.0
-# 解码并计算值
-
 import math
+
+# 遺伝子をデコード
 
 
 def decodechrom(pop, chrom_length):
@@ -12,6 +11,9 @@ def decodechrom(pop, chrom_length):
             t += pop[i][j] * (math.pow(2, j))
         temp.append(t)
     return temp
+
+
+# 最適解を計算
 
 
 def calobjValue(pop, chrom_length, max_value):
